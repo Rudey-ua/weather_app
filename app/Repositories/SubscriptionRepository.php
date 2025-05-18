@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\DataTransferObjects\SubscriptionData;
 use App\Models\WeatherSubscription;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class SubscriptionRepository
@@ -40,5 +41,12 @@ class SubscriptionRepository
     public function unsubscribe(WeatherSubscription $weatherSubscription): bool
     {
         return $weatherSubscription->delete();
+    }
+
+    public function getScheduledWeatherSubscriptions(string $type): ?Collection
+    {
+        return WeatherSubscription::where('subscription_confirmed', true)
+            ->where('frequency', $type)
+            ->get();
     }
 }
