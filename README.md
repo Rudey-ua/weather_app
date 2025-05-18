@@ -2,19 +2,14 @@
 
 ## 🚀 Quick Start
 
-1. **Start Docker Containers**:
+### 🔽 Clone the repository
 
-   ```bash
-   ./vendor/bin/sail up -d
-   ```
+```bash
+git clone https://github.com/Rudey-ua/weather_app.git
+cd weather_app
+```
 
-2. **Run Migrations**:
-
-   ```bash
-   ./vendor/bin/sail artisan migrate
-   ```
-
-3. **Copy Environment File**:
+1. **Copy `.env` file**:
 
    ```bash
    cp .env.example .env
@@ -38,7 +33,36 @@
    MAIL_FROM_NAME="${APP_NAME}"
    ```
 
-4. **Open the App**:
+2. **Install dependencies (Docker-only setup)**:
+
+   ```bash
+   docker run --rm \
+       -u "$(id -u):$(id -g)" \
+       -v $(pwd):/var/www/html \
+       -w /var/www/html \
+       laravelsail/php83-composer:latest \
+       composer install
+   ```
+
+3. **Generate application key**:
+
+   ```bash
+   ./vendor/bin/sail artisan key:generate
+   ```
+
+4. **Start Docker Containers**:
+
+   ```bash
+   ./vendor/bin/sail up -d
+   ```
+
+5. **(Optional) Run Migrations manually** (if not automated):
+
+   ```bash
+   ./vendor/bin/sail artisan migrate
+   ```
+
+6. **Open the App**:
    Visit `http://localhost`
 
 ## 📦 Project Structure
