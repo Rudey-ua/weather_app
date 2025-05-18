@@ -44,16 +44,16 @@ cd weather_app
        composer install
    ```
 
-3. **Generate application key**:
-
-   ```bash
-   ./vendor/bin/sail artisan key:generate
-   ```
-
-4. **Start Docker Containers**:
+3. **Start Docker Containers**:
 
    ```bash
    ./vendor/bin/sail up -d
+   ```
+
+4. **Generate application key**:
+
+   ```bash
+   ./vendor/bin/sail artisan key:generate
    ```
 
 5. **(Optional) Run Migrations manually** (if not automated):
