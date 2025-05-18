@@ -1,4 +1,39 @@
-https://weather-app-main-k6q3gx.laravel.cloud
+# Weather Subscription Service
+
+## 🚀 Quick Start
+
+1. **Start Docker Containers**:
+
+   ```bash
+   ./vendor/bin/sail up -d
+   ```
+
+2. **Run Migrations** (runs automatically, but can also be triggered manually):
+
+   ```bash
+   ./vendor/bin/sail artisan migrate
+   ```
+
+3. **Open the App**:
+   Visit `http://localhost`
+
+
+## 📦 Project Structure
+
+* `routes/api.php` – API endpoints following Swagger specification
+* `routes/web.php` – route for HTML subscription page
+* `routes/console.php` – scheduled commands and cron job registration
+* `app/Http/Controllers` – RESTful controllers handling HTTP requests
+* `app/Mail` – mailable classes for subscription and weather update emails
+* `app/Jobs` – queued jobs for dispatching weather emails
+* `app/Services` – business logic layer (e.g., weather fetching, formatting)
+* `app/Repositories` – data access layer for managing subscriptions
+* `resources/views/emails` – Blade templates for HTML emails
+
+✅ **Extra points features implemented:**
+
+* Deployed API: [https://weather-app-main-k6q3gx.laravel.cloud](https://weather-app-main-k6q3gx.laravel.cloud)
+* Public HTML subscription page is connected to the backend and sends real requests
 
 <img width="779" alt="image" src="https://github.com/user-attachments/assets/f44b11d4-1c34-46ff-b670-dc4ac21af8fe" />
 
