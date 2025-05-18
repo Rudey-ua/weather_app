@@ -42,7 +42,7 @@ class SendWeatherUpdateJob implements ShouldQueue
             $weather = $weatherService->getCurrentWeatherByCity($subscription->city);
             $weatherData = WeatherData::fromArray($weather['current']);
 
-            Mail::to($subscription->email)->send(new ScheduledWeatherUpdateMail(
+            Mail::to($subscription->email)->queue(new ScheduledWeatherUpdateMail(
                     weatherData: $weatherData,
                     type: $subscription->frequency,
                     city: $subscription->city,

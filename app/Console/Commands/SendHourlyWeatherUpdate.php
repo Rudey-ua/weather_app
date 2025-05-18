@@ -19,6 +19,5 @@ class SendHourlyWeatherUpdate extends Command
         SendWeatherUpdateJob::dispatch($type);
 
         $this->info("End Send $type weather update");
-
     }
 }

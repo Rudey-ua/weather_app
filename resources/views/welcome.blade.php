@@ -2,95 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Subscribe to Weather Updates</title>
+    <title>🌤️ Subscribe to Weather Updates</title>
     <style>
         body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            font-family: sans-serif;
             padding: 40px;
+            margin: 0;
         }
         .form-container {
             max-width: 500px;
             margin: auto;
+
             background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px 20px 40px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
         h2 {
             text-align: center;
-            color: #333333;
+            color: #222;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #555555;
+            margin-bottom: 6px;
+            color: #333;
             font-weight: bold;
         }
         input, select {
             width: 100%;
-            padding: 10px;
+            padding: 10px 12px;
             margin-bottom: 20px;
-            border: 1px solid #cccccc;
+            border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
+            background-color: #f9f9f9;
+        }
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
         }
         .error {
-            color: red;
+            color: #d33;
             font-size: 13px;
-            margin-top: -15px;
-            margin-bottom: 10px;
+            margin-top: -12px;
+            margin-bottom: 14px;
         }
         button {
             width: 100%;
             padding: 12px;
-            background-color: #007bff;
+            background-color: #3182ce;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-size: 16px;
             cursor: pointer;
+            transition: background 0.3s;
         }
         button:hover {
             background-color: #0056b3;
+        }
+        .success-message {
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <h2>Subscribe to Weather Updates</h2>
+    <h2>📬 Subscribe</h2>
+    <p class="subtitle">🌦️ Get weather updates for your city by email</p>
 
     @if(session('success'))
-        <p style="color: green; text-align: center;">{{ session('success') }}</p>
+        <p class="success-message">{{ session('success') }}</p>
     @endif
 
     <form action="{{ route('weather.subscribe') }}" method="POST">
         @csrf
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+        <label for="email">📧 Email Address</label>
+        <input style="width: 95%" type="email" id="email" name="email" value="{{ old('email') }}" required>
         @error('email')
         <div class="error">{{ $message }}</div>
         @enderror
 
-        <label for="city">City</label>
-        <input type="text" id="city" name="city" value="{{ old('city') }}" required>
+        <label for="city">🏙️ City</label>
+        <input style="width: 95%" type="text" id="city" name="city" value="{{ old('city') }}" required>
         @error('city')
         <div class="error">{{ $message }}</div>
         @enderror
 
-        <label for="frequency">Update Frequency</label>
+        <label for="frequency">⏱️ Update Frequency</label>
         <select id="frequency" name="frequency" required>
             <option value="">-- Select Frequency --</option>
-            <option value="hourly" {{ old('frequency') === 'hourly' ? 'selected' : '' }}>Hourly</option>
-            <option value="daily" {{ old('frequency') === 'daily' ? 'selected' : '' }}>Daily</option>
+            <option value="hourly" {{ old('frequency') === 'hourly' ? 'selected' : '' }}>Every hour 🌡️</option>
+            <option value="daily" {{ old('frequency') === 'daily' ? 'selected' : '' }}>Once a day ☀️</option>
         </select>
         @error('frequency')
         <div class="error">{{ $message }}</div>
         @enderror
 
-        <button type="submit">Subscribe</button>
+        <button type="submit">📬 Subscribe</button>
     </form>
 </div>
 
