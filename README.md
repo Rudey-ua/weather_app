@@ -8,7 +8,7 @@
    ./vendor/bin/sail up -d
    ```
 
-2. **Run Migrations** (runs automatically, but can also be triggered manually):
+2. **Run Migrations**
 
    ```bash
    ./vendor/bin/sail artisan migrate
