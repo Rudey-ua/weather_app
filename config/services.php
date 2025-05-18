@@ -35,4 +35,16 @@ return [
         ],
     ],
 
+    'weather' => [
+        'api_key' => env('WEATHER_API_KEY'),
+        'base_url' => env('WEATHER_API_BASE_URL'),
+
+        'endpoints' => [
+            'current_weather' => 'current.json'
+        ],
+
+        'error_codes' => [
+            'not_found' => 1006
+        ]
+    ]
 ];
