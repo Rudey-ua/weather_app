@@ -35,7 +35,7 @@
 * Deployed API: [https://weather-app-main-k6q3gx.laravel.cloud](https://weather-app-main-k6q3gx.laravel.cloud)
 * Public HTML subscription page is connected to the backend and sends real requests
 
-<img width="779" alt="image" src="https://github.com/user-attachments/assets/f44b11d4-1c34-46ff-b670-dc4ac21af8fe" />
+<img width="887" alt="image" src="https://github.com/user-attachments/assets/2ecaff24-8ee8-4297-9d04-7958c981361b" />
 
 <img width="1159" alt="Google Chrome 2025-05-18 21 33 44" src="https://github.com/user-attachments/assets/43051bbf-bea6-414a-a9d4-9ad2e3f8935a" />
 
