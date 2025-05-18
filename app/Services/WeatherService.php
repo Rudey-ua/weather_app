@@ -53,7 +53,7 @@ class WeatherService
         }
         $subscription = $this->subscriptionRepository->create($data);
 
-        Mail::to($subscription->email)->send(new ConfirmWeatherSubscriptionMail($subscription->token));
+        Mail::to($subscription->email)->queue(new ConfirmWeatherSubscriptionMail($subscription->token));
 
         return $subscription;
     }
