@@ -8,15 +8,38 @@
    ./vendor/bin/sail up -d
    ```
 
-2. **Run Migrations**
+2. **Run Migrations**:
 
    ```bash
    ./vendor/bin/sail artisan migrate
    ```
 
-3. **Open the App**:
-   Visit `http://localhost`
+3. **Copy Environment File**:
 
+   ```bash
+   cp .env.example .env
+   ```
+
+   Then configure the following values in `.env`:
+
+    * `WEATHER_API_KEY=your_openweather_api_key`
+    * `MAIL_MAILER=log` *(for local testing, or use SMTP below)*
+
+   To use real email sending, update mail settings:
+
+   ```env
+   MAIL_MAILER=smtp
+   MAIL_SCHEME=null
+   MAIL_HOST=127.0.0.1
+   MAIL_PORT=2525
+   MAIL_USERNAME=null
+   MAIL_PASSWORD=null
+   MAIL_FROM_ADDRESS="hello@example.com"
+   MAIL_FROM_NAME="${APP_NAME}"
+   ```
+
+4. **Open the App**:
+   Visit `http://localhost`
 
 ## 📦 Project Structure
 
