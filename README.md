@@ -56,7 +56,7 @@ cd weather_app
    ./vendor/bin/sail artisan key:generate
    ```
 
-5. **(Optional) Run Migrations manually** (if not automated):
+5. **Run Migrations manually**:
 
    ```bash
    ./vendor/bin/sail artisan migrate
